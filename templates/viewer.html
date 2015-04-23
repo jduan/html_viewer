@@ -1,0 +1,10 @@
+<script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
+
+<ul>
+    {% for tag, count in sorted_tags %}
+      <li> {{ tag }} : {{ count }} </li>
+    {% endfor %}
+</ul>
+<pre>
+{{ content }}
+</pre>
