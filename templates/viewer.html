@@ -1,10 +1,22 @@
 <script type=text/javascript src="{{ url_for('static', filename='jquery.js') }}"></script>
 
+<script type=text/javascript>
+    $(function() {
+    $('a').bind('click', function() {
+      tag = $(this).attr('id');
+      text = $('#content').prop('value');
+      new_text = text.replace(tag, '<span style="background-color: #FFFF00">' + tag + '</span>');
+      $('#content').prop('value', new_text);
+      return false;
+    });
+    });
+</script>
+
 <ul>
     {% for tag, count in sorted_tags %}
-      <li> {{ tag }} : {{ count }} </li>
+    <li> <a id="{{ tag }}" href="/index.html">{{ tag }}</a> : {{ count }} </li>
     {% endfor %}
 </ul>
-<pre>
+<textarea id='content'>
 {{ content }}
-</pre>
+</textarea>
