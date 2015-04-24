@@ -4,9 +4,10 @@
     $(function() {
         $('a').bind('click', function() {
             tag = $(this).attr('id');
-            text = $('#content').prop('value');
-            new_text = text.replace(tag, '<span style="background-color: #FFFF00">' + tag + '</span>');
-            $('#content').prop('value', new_text);
+            text = $('#content').text();
+            var re = new RegExp(tag, 'g');
+            new_text = text.replace(re, '<span style="background-color: #FFFF00">' + tag + '</span>');
+            $('#content').text(new_text);
             return false;
         });
     });
@@ -17,6 +18,6 @@
     <li> <a id="{{ tag }}" href="/index.html">{{ tag }}</a> : {{ count }} </li>
     {% endfor %}
 </ul>
-<textarea id='content'>
+<pre id='content'>
 {{ content }}
-</textarea>
+</pre>
