@@ -2,13 +2,13 @@
 
 <script type=text/javascript>
     $(function() {
-    $('a').bind('click', function() {
-      tag = $(this).attr('id');
-      text = $('#content').prop('value');
-      new_text = text.replace(tag, '<span style="background-color: #FFFF00">' + tag + '</span>');
-      $('#content').prop('value', new_text);
-      return false;
-    });
+        $('a').bind('click', function() {
+            tag = $(this).attr('id');
+            text = $('#content').prop('value');
+            new_text = text.replace(tag, '<span style="background-color: #FFFF00">' + tag + '</span>');
+            $('#content').prop('value', new_text);
+            return false;
+        });
     });
 </script>
 
